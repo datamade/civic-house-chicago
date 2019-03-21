@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <title>
+      {% if page.title %}
+        {{page.title}} -
+      {% endif %}
+      {{site.name}}
+    </title>
+    <meta charset='utf-8' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% if page.description %}
+      <meta content="{{ page.description }}" name='description' />
+    {% else %}
+      <meta content="{{ site.description }}" name='description' />
+    {% endif %}
+    <meta content="{{ site.name }}" name='author' />
+
+    <!-- Facebook metadata -->
+    <meta content="{{ site.name }}" property="og:site_name">
+    {% if page.title %}
+      <meta content="{{ page.title }} - {{ site.name }}" property="og:title">
+    {% else %}
+      <meta content="{{ site.name }}" property="og:title">
+    {% endif %}
+    {% if page.title %}
+      <meta content="article" property="og:type">
+    {% else %}
+      <meta content="website" property="og:type">
+    {% endif %}
+    {% if page.description %}
+      <meta content="{{ page.description }}" property="og:description">
+    {% else %}
+      <meta content="{{ site.description }}" property="og:description">
+    {% endif %}
+    {% if page.url %}
+      <meta content="{{ site.url }}{{ page.url }}" property="og:url">
+    {% endif %}
+    {% if page.date %}
+      <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
+    {% endif %}
+    <meta content="{{ site.url }}/images/XXX.jpg" property="og:image">
+    {% if page.categories %}
+      {% for category in page.categories limit:1 %}
+      <meta content="{{ category }}" property="article:section">
+      {% endfor %}
+    {% endif %}
+    {% if page.tags %}
+      {% for tag in page.tags %}
+      <meta content="{{ tag }}" property="article:tag">
+      {% endfor %}
+    {% endif %}
+
+    <!-- Twitter metadata -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="{{ site.title }}">
+    <meta name="twitter:creator" content="{{ site.title }}">
+    {% if page.title %}
+      <meta name="twitter:title" content="{{ page.title }}">
+    {% else %}
+      <meta name="twitter:title" content="{{ site.title }}">
+    {% endif %}
+    {% if page.url %}
+      <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
+    {% endif %}
+    {% if page.description %}
+      <meta name="twitter:description" content="{{ page.description }}">
+    {% else %}
+      <meta name="twitter:description" content="{{ site.description }}">
+    {% endif %}
+    <meta name="twitter:image:src" content="{{ site.url }}/images/XXX.jpg">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,400italic,700' rel='stylesheet' type='text/css'>
+    <link href="/css/bootstrap.simplex.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/custom.css">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
+    <script src="/lib/bootstrap.min.js"></script>
+
+  </head>
+  <body data-target=".navbar" data-offset="50">
+    <div class="navbar navbar-default navbar-static" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-left" href="/">Civic House</a>
+        </div>
+        <div class="navbar-collapse collapse pull-right">
+          <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+
+    {{content}}
+
+    <footer class='footer'>
+        <div class='container-fluid'>
+          <div class='row'>
+            <div class='col-sm-2 col-sm-offset-1'>
+              <small>
+                <strong>Civic House</strong><br />
+                233 N Michigan Ave<br />
+                Suite 1800<br />
+                Chicago, IL 60601
+              </small>
+            </div>
+            <div class='col-sm-2'>
+              <small>
+                <strong>Contact us</strong><br />
+                <a href='mailto:info@civichousechicago.org'>info@civichousechicago.org</a><br />
+                &copy; {{ site.time | date: '%Y' }} Civic House
+              </small>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    <script src="/lib/analytics_lib.js"></script>
+  </body>
+</html>

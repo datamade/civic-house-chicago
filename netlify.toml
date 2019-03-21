@@ -1,0 +1,19 @@
+[build]
+    publish = "_site/"
+    command = "jekyll build"
+
+[context.deploy-preview]
+    environment = { JEKYLL_ENV = "staging" }
+
+[context.production]
+    environment = { JEKYLL_ENV = "production" }
+
+[[redirects]]
+    from = "https://civic-house-chicago.netlify.com/*"
+    to = "https://civichousechicago.com/:splat"
+    status = 301
+
+[[redirects]]
+    from = "https://www.civichousechicago.com/*"
+    to = "https://civichousechicago.com/:splat"
+    status = 301

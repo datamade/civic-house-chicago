@@ -1,0 +1,11 @@
+port:  3000
+markdown: kramdown
+name: "Civic House Chicago"
+title: "Civic House Chicago"
+url: https://civichousechicago.org
+encoding: utf-8
+timezone: America/Chicago
+description: "Civic House is a collaborative work space in Chicago for organizations dedicated to improving the public's access to civic information."
+permalink: none
+gems:
+  - jekyll-redirect-from

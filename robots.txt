@@ -1,0 +1,3 @@
+Sitemap: https://civichousechicago.org/sitemap.xml
+User-agent: *
+Disallow:
